@@ -3,6 +3,7 @@ function encriptar(){
     let tituloMensaje = document.getElementById("titulo_mensaje");
     let parrafo = document.getElementById("parrafo");
     let imagen = document.getElementById("imagen");
+    let copiar = document.getElementById("copiar");
 
     let textoCifrado = texto
     .replace(/e/gi, "enter")
@@ -12,9 +13,16 @@ function encriptar(){
     .replace(/u/gi, "ufat");
 
     if (texto.length != 0){
-        document.getElementById("texto").value = textoCifrado;
-        tituloMensaje.textContent = "Texto encriptado con éxito";
-        parrafo.textContent = "";
+        
+        /*imagen.setAttribute("style", "visibility: hidden;");*/
+        tituloMensaje.setAttribute("style", "display: block; justify-content: center;");
+        /*copiar.setAttribute("style", "display: flex")*/
+
+
+        document.getElementById("texto").value = "";
+        document.getElementById("texto").reset; 
+        tituloMensaje.textContent = textoCifrado;
+        parrafo.textContent = "Esta es la palabra desifrada";
         imagen.src = "./img/encriptado.jpg";
 
     }else{
@@ -24,6 +32,20 @@ function encriptar(){
         alert("Debes ingresar algún texto");
     }
 }
+
+/*function copiarText(){
+    let inputText = textoCifrado;
+
+    inputText.select();
+    inputText.setSelectionRange(0, 99999);
+
+    navigator.clipboard.writeText(inputText.value);
+
+    alert("Texto copiado: "+ inputText.value);
+
+}*/
+
+
 
 function desencriptar(){
     let texto = document.getElementById("texto").value;
@@ -40,9 +62,13 @@ function desencriptar(){
     .replace(/ufat/gi, "u");
 
     if (texto.length != 0){
-        document.getElementById("texto").value = textoCifrado;
-        tituloMensaje.textContent = "Texto desencriptado con éxito";
-        parrafo.textContent = "";
+
+        /*imagen.setAttribute("style", "display:none;");*/
+
+        document.getElementById("texto").value = "";
+        document.getElementById("texto").reset; 
+        tituloMensaje.textContent = textoCifrado;
+        parrafo.textContent = "Esta es la palabra desifrada";
         imagen.src = "./img/desencriptado.jpg";
     }else{
         imagen.src = "./img/muñeco.png"
@@ -51,3 +77,5 @@ function desencriptar(){
         alert("Debes ingresar algún texto");
     }
 }
+
+

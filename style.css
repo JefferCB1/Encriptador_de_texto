@@ -61,6 +61,7 @@
     width: 80%;
     left: 12%;
     top: 82%;
+    gap: 25px;
 }
 .btn_encriptar{
     align-items: center;
